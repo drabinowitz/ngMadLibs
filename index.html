@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app=''>
+<head>
+
+	<link rel="stylesheet" href="main.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+</head>
+<body ng-init="femaleName='Female name'; jobTitle='Job title'; tediousTask='Tedious task'; dirtyTask='Dirty task'; celebrity='Celebrity'; uselessSkill='Useless skill'; obnoxiousCelebrity='Obnoxious celebrity'; hugeNumber='Huge number'; adjective='Adjective'">
+
+	<div class="container">
+
+		<div class="row headerBar">
+		
+			<div class="happyFace col-md-3">
+				
+				<img src="mad-lib-happy-face.png" alt="" class="happyFaceImage">
+
+			</div>
+
+			<div class="logo col-md-9">
+				
+				<img src="ng-mad-libs-logo.png" alt="" class="logoImage">
+
+				<h1 class="logoTitle">Automate This!</h1>
+
+			</div>
+
+		</div>
+
+		<div class="row madLibsInputs">
+			
+			<h2>Provide the following words:</h2>
+
+			<div class="col-md-4">
+				
+				<input type="text" ng-model="femaleName">
+				<input type="text" ng-model="jobTitle">
+				<input type="text" ng-model="tediousTask">
+
+			</div>
+
+			<div class="col-md-4">
+				
+				<input type="text" ng-model="dirtyTask">
+				<input type="text" ng-model="celebrity">
+				<input type="text" ng-model="uselessSkill">
+				
+			</div>
+
+			<div class="col-md-4">
+			
+				<input type="text" ng-model="obnoxiousCelebrity">
+				<input type="text" ng-model="hugeNumber">
+				<input type="text" ng-model="adjective">
+
+			</div>
+
+		</div>
+
+		<div class="row">
+			<p>{{femaleName | uppercase}} was a {{jobTitle | uppercase}} who loved technology. Although she loved parts of her job, she absolutely hated  {{tediousTask | uppercase}} and {{dirtyTask | uppercase}}. So, {{femaleName | uppercase}} met with her life mentor {{celebrity | uppercase}} who told her to learn how to {{uselessSkill | uppercase}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill | uppercase}} so she studied programming instead.</p>
+ 
+			<p>What a great decision! With her new skills, {{femaleName | uppercase}} built a(n) {{adjective | uppercase}} robot named {{obnoxiousCelebrity | uppercase}} that not only loved {{dirtyTask | uppercase}} but did it {{hugeNumber | uppercase}} faster. 
+			</p>
+		</div>
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+</body>
+</html>
