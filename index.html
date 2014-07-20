@@ -13,13 +13,13 @@
 
 		<div class="row headerBar">
 		
-			<div class="happyFace col-md-3">
+			<div class="happyFace col-md-2">
 				
 				<img src="mad-lib-happy-face.png" alt="" class="happyFaceImage">
 
 			</div>
 
-			<div class="logo col-md-9">
+			<div class="logo col-md-10">
 				
 				<img src="ng-mad-libs-logo.png" alt="" class="logoImage">
 
@@ -35,37 +35,13 @@
 
 			<div ng-repeat="madlib in madlibs | orderObjectBy:'index'" class="col-md-4">
 				
-				<input type="text" ng-model="madlib.word">
-
-			</div>			
-
-			<!--<div class="col-md-4">
-				
-				<input type="text" ng-model="femaleName">
-				<input type="text" ng-model="jobTitle">
-				<input type="text" ng-model="tediousTask">
+				<input type="text" ng-model="madlib.word" class="madlibsInput">
 
 			</div>
-
-			<div class="col-md-4">
-				
-				<input type="text" ng-model="dirtyTask">
-				<input type="text" ng-model="celebrity">
-				<input type="text" ng-model="uselessSkill">
-				
-			</div>
-
-			<div class="col-md-4">
-			
-				<input type="text" ng-model="obnoxiousCelebrity">
-				<input type="text" ng-model="hugeNumber">
-				<input type="text" ng-model="adjective">
-
-			</div>-->
 
 		</div>
 
-		<div class="row">
+		<div class="row madlibsOutput">
 			<p>{{madlibs.femaleName.word | uppercase}} was a {{madlibs.jobTitle.word | uppercase}} who loved technology. Although she loved parts of her job, she absolutely hated  {{madlibs.tediousTask.word | uppercase}} and {{madlibs.dirtyTask.word | uppercase}}. So, {{madlibs.femaleName.word | uppercase}} met with her life mentor {{madlibs.celebrity.word | uppercase}} who told her to learn how to {{madlibs.uselessSkill.word | uppercase}} with Thinkful. Thinkful didn't offer a course on {{madlibs.uselessSkill.word | uppercase}} so she studied programming instead.</p>
  
 			<p>What a great decision! With her new skills, {{madlibs.femaleName.word | uppercase}} built a(n) {{madlibs.adjective.word | uppercase}} robot named {{madlibs.obnoxiousCelebrity.word | uppercase}} that not only loved {{madlibs.dirtyTask.word | uppercase}} but did it {{madlibs.hugeNumber.word | uppercase}} faster. 
