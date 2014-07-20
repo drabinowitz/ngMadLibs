@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app=''>
+<html ng-app='madlibs'>
 <head>
 
 	<link rel="stylesheet" href="main.css">
@@ -7,17 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 </head>
-<body ng-init="madlibs={
-	femaleName:{word:'Female name',index:1},
-	jobTitle:{word:'Job title',index:2},
-	tediousTask:{word:'Tedious task',index:3},
-	dirtyTask:{word:'Dirty task',index:4},
-	celebrity:{word:'Celebrity',index:5},
-	uselessSkill:{word:'Useless skill',index:6},
-	obnoxiousCelebrity:{word:'Obnoxious celebrity',index:7},
-	hugeNumber:{word:'Huge number',index:8},
-	adjective:{word:'Adjective',index:9}
-}">
+<body ng-controller="myController">
 
 	<div class="container">
 
@@ -43,7 +33,7 @@
 			
 			<h2>Provide the following words:</h2>
 
-			<div ng-repeat="madlib in madlibs | orderBy:'index'" class="col-md-4">
+			<div ng-repeat="madlib in madlibs | orderObjectBy:'index'" class="col-md-4">
 				
 				<input type="text" ng-model="madlib.word">
 
@@ -85,6 +75,8 @@
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+	<script src="app.js"></script>
 
 </body>
 </html>
