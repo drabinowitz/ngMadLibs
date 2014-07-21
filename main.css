@@ -5,47 +5,47 @@
 }
 
 .container {
-border: 1px solid black;
-margin-top:50px;
+	border: 1px solid black;
+	margin-top:50px;
 }
 
 .headerBar{
-border-bottom: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 .happyFace {
-border: 1px solid black;
+	border: 1px solid black;
 }
 
 .happyFaceImage {
-height: 80px;
-margin: 3px auto;
-display: block;
+	height: 80px;
+	margin: 3px auto;
+	display: block;
 }
 
 .logoImage {
-height: 45px;
-display: block;
-margin: 5px auto;
+	height: 45px;
+	display: block;
+	margin: 5px auto;
 }
 
 .logoTitle {
-text-align: center;
-margin: -5px;
+	text-align: center;
+	margin: -5px;
 }
 
 .madLibsInputs h2 {
-margin-top: 50px;
-margin-left: 50px;
+	margin-top: 50px;
+	margin-left: 50px;
 }
 
 .madlibsInput {
-display: block;
-margin: 5px auto;
+	display: block;
+	margin: 5px auto;
 }
 
 .madlibsOutput {
-margin-top: 50px;
-border-top: 1px solid black;
-padding: 20px 60px;
+	margin-top: 50px;
+	border-top: 1px solid black;
+	padding: 20px 60px;
 }
