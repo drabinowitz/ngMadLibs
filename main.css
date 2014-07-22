@@ -5,47 +5,72 @@
 }
 
 .container {
-border: 1px solid black;
-margin-top:50px;
+	border: 1px solid black;
+	margin-top:50px;
 }
 
 .headerBar{
-border-bottom: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 .happyFace {
-border: 1px solid black;
+	border: 1px solid black;
 }
 
 .happyFaceImage {
-height: 80px;
-margin: 3px auto;
-display: block;
+	height: 80px;
+	margin: 3px auto;
+	display: block;
 }
 
 .logoImage {
-height: 45px;
-display: block;
-margin: 5px auto;
+	height: 45px;
+	display: block;
+	margin: 5px auto;
 }
 
 .logoTitle {
-text-align: center;
-margin: -5px;
+	text-align: center;
+	margin: -5px;
 }
 
 .madLibsInputs h2 {
-margin-top: 50px;
-margin-left: 50px;
-}
+	margin-top: 50px;
+	margin-left: 50px;
+	}
 
 .madlibsInput {
-display: block;
-margin: 5px auto;
+	display: block;
+	margin: 5px auto;
+}
+
+.genderLabel {
+	margin-left: 30px;
+}
+
+.gender {
+	float: left;
+	margin-left: 10px;
+}
+
+.mlSubmit {
+	margin-top: 5px;
+	border-top: 1px solid rgba(0, 0, 0, 0.32);
+}
+
+.errorMessage {
+	color: red;
+}
+
+.mlSubmitButton {
+	float: right;
+	margin: 15px;
 }
 
 .madlibsOutput {
-margin-top: 50px;
-border-top: 1px solid black;
-padding: 20px 60px;
+	padding: 20px 60px;
+}
+
+.resetButton {
+float: right;
 }
