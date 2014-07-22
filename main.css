@@ -44,6 +44,37 @@
 	margin: 5px auto;
 }
 
+.genderLabel {
+	margin-left: 30px;
+}
+
+.gender {
+	float: left;
+	margin-left: 10px;
+}
+
+.mlSubmit {
+	margin-top: 5px;
+	border-top: 1px solid rgba(0, 0, 0, 0.32);
+}
+
+.errorMessage {
+	color: red;
+}
+
+.mlSubmitButton {
+	float: right;
+	margin: 15px;
+}
+
+.madlibsOutput {
+	padding: 20px 60px;
+}
+
+.resetButton {
+	float: right;
+}
+
 .madlibsOutput {
 	margin-top: 50px;
 	border-top: 1px solid black;

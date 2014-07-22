@@ -1,59 +1,146 @@
 angular.module('madlibs', [])
-	.controller('myController',['$scope', function($scope) {
-	
-		$scope.madlibs = {
-			femaleName: {
-				word: 'Female name',
-				index: 1
-			},
-			jobTitle: {
-				word: 'Job title',
-				index: 2
-			},
-			tediousTask: {
-				word: 'Tedious task',
-				index: 3
-			},
-			dirtyTask: { 
-				word: 'Dirty task',
-				index: 4
-			},
-			celebrity: { 
-				word: 'Celebrity', 
-				index: 5
-			},
-			uselessSkill: {
-				word: 'Useless skill',
-				index: 6
-			},
-			obnoxiousCelebrity: {
-				word: 'Obnoxious celebrity',
-				index: 7
-			},
-			hugeNumber: {
-				word: 'Huge number',
-				index: 8
-			},
-			adjective: {
-				word: 'Adjective',
-				index: 9
+
+	.controller('mlInputCtrl', function($rootScope,$scope) {
+
+		var init = function(){
+
+			$rootScope.mlTab = "input";
+
+			$scope.settings = {};
+
+			$scope.submitted = false;
+
+			$scope.madlibs={
+				
+				name:{
+					type: "text",
+					placeholder:'Name',
+					index:1
+				},
+				
+				jobTitle:{
+					type: "text",
+					placeholder:'Job title',
+					index:2
+				},
+				
+				tediousTask:{
+					type: "text",					
+					placeholder:'Tedious task',
+					index:3
+				},
+				
+				dirtyTask:{
+					type: "text",					
+					placeholder:'Dirty task',
+					index:4
+				},
+				
+				celebrity:{
+					type: "text",					
+					placeholder:'Celebrity',
+					index:5
+				},
+				
+				uselessSkill:{
+					type: "text",					
+					placeholder:'Useless skill',
+					index:6
+				},
+
+				obnoxiousCelebrity:{
+					type: "text",					
+					placeholder:'Obnoxious celebrity',
+					index:7
+				},
+
+				hugeNumber:{
+					type: "number",					
+					placeholder:'Huge number',
+					index:8
+				},
+
+				adjective:{
+					type: "text",					
+					placeholder:'Adjective',
+					index:9
+				}
 			}
+
 		};
 
-	}]).filter('orderObjectBy', function() {
-  		return function(items, field, reverse) {
-    		var filtered = [];
+		$scope.submit = function(){
 
-		    angular.forEach(items, function(item) {
-		      filtered.push(item);
-		    });
+			$scope.submitted = true;
 
-		    filtered.sort(function (a, b) {
-		      return (a[field] > b[field] ? 1 : -1);
-		    });
+			if($scope.mlForm.$valid){
 
-		    if(reverse) filtered.reverse();
+				console.log('Form Submitted: ',$scope.madlibs,$scope.settings);
 
-		    return filtered;
+				$rootScope.$broadcast('mlSubmit',$scope.madlibs,$scope.settings);
+
+			} else {
+
+				console.log('form not valid');
+
+			}
+
+		};
+
+		init();
+
+		$scope.$on('mlReset',function(event){
+
+			init();
+
+		})
+
+	})
+
+	.filter('orderObjectBy', function() {
+	  
+	  return function(items, field, reverse) {
+	    var filtered = [];
+	    angular.forEach(items, function(item) {
+	      filtered.push(item);
+	    });
+	    filtered.sort(function (a, b) {
+	      return (a[field] > b[field] ? 1 : -1);
+	    });
+	    if(reverse) filtered.reverse();
+	    return filtered;
 	  };
+
+	})
+
+	.controller('mlOutputCtrl', function($rootScope,$scope){
+
+		$scope.$on('mlSubmit',function(event,madlibs,settings){
+
+			$scope.madlibs = madlibs;
+
+			$scope.settings = settings;
+
+			$rootScope.mlTab = "output";
+
+		});
+
+		$scope.reset = function(){
+
+			$rootScope.$broadcast('mlReset');
+
+		};
+
+	})
+
+	.filter('gender', function() {
+	
+	  return function(input,genderInput) {
+	
+	    var pronouns={obj:['he','she'],subj:['him','her'],poss:['his','her']};
+	
+	    return genderInput == "male"? pronouns[input][0] : pronouns[input][1];
+	
+	  };
+
 	});

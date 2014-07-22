@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="main.css">
 
 </head>
-<body ng-controller="myController">
+<body>
 
 	<div class="container">
 
@@ -29,23 +29,51 @@
 
 		</div>
 
-		<div class="row madLibsInputs">
+		<div ng-show="mlTab == 'input'" ng-controller="mlInputCtrl" class="row madLibsInputs">
 			
 			<h2>Provide the following words:</h2>
 
-			<div ng-repeat="madlib in madlibs | orderObjectBy:'index'" class="col-md-4">
-				
-				<input type="text" ng-model="madlib.word" class="madlibsInput">
+			<form name="mlForm" ng-submit="submit()" novalidate>
 
-			</div>
+				<div ng-repeat="(name,madlib) in madlibs | orderObjectBy:'index'" class="col-md-4">
+					
+					<input type="{{ madlib.type }}" name="{{ name }}" placeholder="{{ madlib.placeholder }}" ng-model="madlib.word" class="madlibsInput" ng-required="true">
+
+				</div>
+
+				<label class="col-md-12 genderLabel" for="gender"><h3>Gender:</h3></label>
+
+				<div class="col-md-12">
+
+					<p class="gender">male:</p>
+
+					<input class="gender" type="radio" name="gender" value="male" ng-model="settings.gender" ng-checked="true">
+
+					<p class="gender">female:</p>
+
+					<input class="gender" type="radio" name="gender" value="female" ng-model="settings.gender">
+
+				</div>
+
+				<div class="mlSubmit col-md-12">
+
+					<p class="errorMessage" ng-if="submitted && mlForm.$invalid">Please fill out all fields and make sure to input a number in Huge Number</p>
+
+					<input class="mlSubmitButton" type="submit" value="Generate My Mad Lib">
+
+				</div>
+
+			</form>
 
 		</div>
 
-		<div class="row madlibsOutput">
-			<p>{{madlibs.femaleName.word | uppercase}} was a {{madlibs.jobTitle.word | uppercase}} who loved technology. Although she loved parts of her job, she absolutely hated  {{madlibs.tediousTask.word | uppercase}} and {{madlibs.dirtyTask.word | uppercase}}. So, {{madlibs.femaleName.word | uppercase}} met with her life mentor {{madlibs.celebrity.word | uppercase}} who told her to learn how to {{madlibs.uselessSkill.word | uppercase}} with Thinkful. Thinkful didn't offer a course on {{madlibs.uselessSkill.word | uppercase}} so she studied programming instead.</p>
+		<div ng-show="mlTab == 'output'" ng-controller="mlOutputCtrl" class="row madlibsOutput">
+			<p>{{madlibs.name.word | uppercase}} was a {{madlibs.jobTitle.word | uppercase}} who loved technology. Although {{ "obj" | gender:settings.gender }} loved parts of {{ "poss" | gender:settings.gender }} job, {{ "obj" | gender:settings.gender }} absolutely hated  {{madlibs.tediousTask.word | uppercase}} and {{madlibs.dirtyTask.word | uppercase}}. So, {{madlibs.name.word | uppercase}} met with {{ "poss" | gender:settings.gender }} life mentor {{madlibs.celebrity.word | uppercase}} who told {{ "subj" | gender:settings.gender }} to learn how to {{madlibs.uselessSkill.word | uppercase}} with Thinkful. Thinkful didn't offer a course on {{madlibs.uselessSkill.word | uppercase}} so {{ "obj" | gender:settings.gender }} studied programming instead.</p>
  
-			<p>What a great decision! With her new skills, {{madlibs.femaleName.word | uppercase}} built a(n) {{madlibs.adjective.word | uppercase}} robot named {{madlibs.obnoxiousCelebrity.word | uppercase}} that not only loved {{madlibs.dirtyTask.word | uppercase}} but did it {{madlibs.hugeNumber.word | uppercase}} faster. 
+			<p>What a great decision! With {{ "poss" | gender:settings.gender }} new skills, {{madlibs.name.word | uppercase}} built a(n) {{madlibs.adjective.word | uppercase}} robot named {{madlibs.obnoxiousCelebrity.word | uppercase}} that not only loved {{madlibs.dirtyTask.word | uppercase}} but did it {{madlibs.hugeNumber.word | uppercase}} faster. 
 			</p>
+
+			<button class="resetButton" ng-click="reset()">Reset?</button>
 		</div>
 
 	</div>
