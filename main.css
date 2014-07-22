@@ -37,16 +37,11 @@
 .madLibsInputs h2 {
 	margin-top: 50px;
 	margin-left: 50px;
-<<<<<<< HEAD
-	}
-=======
 }
->>>>>>> master
 
 .madlibsInput {
 	display: block;
 	margin: 5px auto;
-<<<<<<< HEAD
 }
 
 .genderLabel {
@@ -77,13 +72,11 @@
 }
 
 .resetButton {
-float: right;
-=======
+	float: right;
 }
 
 .madlibsOutput {
 	margin-top: 50px;
 	border-top: 1px solid black;
 	padding: 20px 60px;
->>>>>>> master
 }
