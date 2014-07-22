@@ -2,7 +2,72 @@ angular.module('madlibs', [])
 
 	.controller('mlInputCtrl', function($rootScope,$scope) {
 
-		$rootScope.mlTab = "input";
+		var init = function(){
+
+			$rootScope.mlTab = "input";
+
+			$scope.settings = {};
+
+			$scope.submitted = false;
+
+			$scope.madlibs={
+				
+				name:{
+					type: "text",
+					placeholder:'Name',
+					index:1
+				},
+				
+				jobTitle:{
+					type: "text",
+					placeholder:'Job title',
+					index:2
+				},
+				
+				tediousTask:{
+					type: "text",					
+					placeholder:'Tedious task',
+					index:3
+				},
+				
+				dirtyTask:{
+					type: "text",					
+					placeholder:'Dirty task',
+					index:4
+				},
+				
+				celebrity:{
+					type: "text",					
+					placeholder:'Celebrity',
+					index:5
+				},
+				
+				uselessSkill:{
+					type: "text",					
+					placeholder:'Useless skill',
+					index:6
+				},
+
+				obnoxiousCelebrity:{
+					type: "text",					
+					placeholder:'Obnoxious celebrity',
+					index:7
+				},
+
+				hugeNumber:{
+					type: "number",					
+					placeholder:'Huge number',
+					index:8
+				},
+
+				adjective:{
+					type: "text",					
+					placeholder:'Adjective',
+					index:9
+				}
+			}
+
+		};
 
 		$scope.submit = function(){
 
@@ -10,9 +75,9 @@ angular.module('madlibs', [])
 
 			if($scope.mlForm.$valid){
 
-				console.log('Form Submitted: ',$scope.madlibs);
+				console.log('Form Submitted: ',$scope.madlibs,$scope.settings);
 
-				$rootScope.$broadcast('mlSubmit',$scope.madlibs);
+				$rootScope.$broadcast('mlSubmit',$scope.madlibs,$scope.settings);
 
 			} else {
 
@@ -21,54 +86,14 @@ angular.module('madlibs', [])
 			}
 
 		};
-	
-		$scope.madlibs={
-			
-			name:{
-				placeholder:'Name',
-				index:1
-			},
-			
-			jobTitle:{
-				placeholder:'Job title',
-				index:2
-			},
-			
-			tediousTask:{
-				placeholder:'Tedious task',
-				index:3
-			},
-			
-			dirtyTask:{
-				placeholder:'Dirty task',
-				index:4
-			},
-			
-			celebrity:{
-				placeholder:'Celebrity',
-				index:5
-			},
-			
-			uselessSkill:{
-				placeholder:'Useless skill',
-				index:6
-			},
 
-			obnoxiousCelebrity:{
-				placeholder:'Obnoxious celebrity',
-				index:7
-			},
+		init();
 
-			hugeNumber:{
-				placeholder:'Huge number',
-				index:8
-			},
+		$scope.$on('mlReset',function(event){
 
-			adjective:{
-				placeholder:'Adjective',
-				index:9
-			}
-		}
+			init();
+
+		})
 
 	})
 
@@ -90,13 +115,21 @@ angular.module('madlibs', [])
 
 	.controller('mlOutputCtrl', function($rootScope,$scope){
 
-		$scope.$on('mlSubmit',function(event,madlibs){
+		$scope.$on('mlSubmit',function(event,madlibs,settings){
 
 			$scope.madlibs = madlibs;
+
+			$scope.settings = settings;
 
 			$rootScope.mlTab = "output";
 
 		});
+
+		$scope.reset = function(){
+
+			$rootScope.$broadcast('mlReset');
+
+		};
 
 	})
 
