@@ -1,6 +1,6 @@
 angular.module('madlibs', ['ngAnimate'])
 
-	.controller('mlInputCtrl', function($rootScope,$scope) {
+	.controller('mlInputCtrl', function($rootScope,$scope,$timeout) {
 
 		var init = function(){
 
@@ -77,7 +77,13 @@ angular.module('madlibs', ['ngAnimate'])
 
 				console.log('Form Submitted: ',$scope.madlibs,$scope.settings);
 
-				$rootScope.$broadcast('mlSubmit',$scope.madlibs,$scope.settings);
+				$timeout(function(){
+
+					$rootScope.$broadcast('mlSubmit',$scope.madlibs,$scope.settings);
+
+				},1000);
+
+				$rootScope.mlTab = undefined;
 
 			} else {
 
