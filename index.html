@@ -29,7 +29,7 @@
 
 		</div>
 
-		<div ng-show="mlTab == 'input'" ng-controller="mlInputCtrl" class="row madLibsInputs">
+		<div ng-show="mlTab == 'input'" ng-controller="mlInputCtrl" class="row madlibsInputs animateBody">
 			
 			<h2>Provide the following words:</h2>
 
@@ -67,7 +67,7 @@
 
 		</div>
 
-		<div ng-show="mlTab == 'output'" ng-controller="mlOutputCtrl" class="row madlibsOutput">
+		<div ng-show="mlTab == 'output'" ng-controller="mlOutputCtrl" class="row madlibsOutput animateBody">
 			<p>{{madlibs.name.word | uppercase}} was a {{madlibs.jobTitle.word | uppercase}} who loved technology. Although {{ "obj" | gender:settings.gender }} loved parts of {{ "poss" | gender:settings.gender }} job, {{ "obj" | gender:settings.gender }} absolutely hated  {{madlibs.tediousTask.word | uppercase}} and {{madlibs.dirtyTask.word | uppercase}}. So, {{madlibs.name.word | uppercase}} met with {{ "poss" | gender:settings.gender }} life mentor {{madlibs.celebrity.word | uppercase}} who told {{ "subj" | gender:settings.gender }} to learn how to {{madlibs.uselessSkill.word | uppercase}} with Thinkful. Thinkful didn't offer a course on {{madlibs.uselessSkill.word | uppercase}} so {{ "obj" | gender:settings.gender }} studied programming instead.</p>
  
 			<p>What a great decision! With {{ "poss" | gender:settings.gender }} new skills, {{madlibs.name.word | uppercase}} built a(n) {{madlibs.adjective.word | uppercase}} robot named {{madlibs.obnoxiousCelebrity.word | uppercase}} that not only loved {{madlibs.dirtyTask.word | uppercase}} but did it {{madlibs.hugeNumber.word | uppercase}} faster. 
@@ -79,6 +79,8 @@
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js"></script>
 
 	<script src="app.js"></script>
 

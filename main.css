@@ -34,14 +34,20 @@
 	margin: -5px;
 }
 
-.madLibsInputs h2 {
+.madlibsInputs{
+	position: relative;
+}
+
+.madlibsInputs h2 {
 	margin-top: 50px;
 	margin-left: 50px;
+	position: relative;
 }
 
 .madlibsInput {
 	display: block;
 	margin: 5px auto;
+	position: relative;
 }
 
 .genderLabel {
@@ -76,7 +82,29 @@
 }
 
 .madlibsOutput {
-	margin-top: 50px;
-	border-top: 1px solid black;
 	padding: 20px 60px;
+	position: relative;
+}
+
+.animateBody.ng-hide-remove{
+/*   remember, the .hg-hide class is added to element
+   when the active class is added causing it to appear
+   as hidden. Therefore set the styling to display=block
+   so that the hide animation is visible */
+  display:block!important
+}
+
+.animateBody.ng-hide-remove {
+  -webkit-animation:1.0s show;
+  animation:1.0s show;
+}
+
+@keyframes show {
+  from { opacity:0;left:30px; }
+  to { opacity:1;left:0; }
+}
+
+@-webkit-keyframes show {
+  from { opacity:0;left:30px; }
+  to { opacity:1;left:0; }
 }

@@ -1,4 +1,4 @@
-angular.module('madlibs', [])
+angular.module('madlibs', ['ngAnimate'])
 
 	.controller('mlInputCtrl', function($rootScope,$scope) {
 
