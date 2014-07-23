@@ -88,10 +88,6 @@
 
 .animateBody.ng-hide-remove,
 .animateBody.ng-hide-add{
-/*   remember, the .hg-hide class is added to element
-   when the active class is added causing it to appear
-   as hidden. Therefore set the styling to display=block
-   so that the hide animation is visible */
   display:block!important
 }
 
@@ -114,3 +110,27 @@
   from { opacity:0;left:30px; }
   to { opacity:1;left:0; }
 }
+
+.madlibsWrapper.ng-enter-stagger{
+	-webkit-animation-delay:0.1s;
+	animation-delay:0.1s;
+	-webkit-animation-duration:0;
+	-animation-duration:0;
+}
+
+.madlibsWrapper.ng-enter{
+	opacity: 0;
+	left:10px;
+	-webkit-animation:0.5s enterRight;
+	animation:0.5s enterRight;
+}
+
+@keyframes enterRight {
+  from { opacity:0;left:10px; }
+  to { opacity:1;left:0; }
+}
+
+@-webkit-keyframes enterRight {
+  from { opacity:0;left:10px; }
+  to { opacity:1;left:0; }
+ }

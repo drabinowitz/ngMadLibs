@@ -35,7 +35,7 @@
 
 			<form name="mlForm" ng-submit="submit()" novalidate>
 
-				<div ng-repeat="(name,madlib) in madlibs | orderObjectBy:'index'" class="col-md-4">
+				<div ng-repeat="(name,madlib) in madlibs | orderObjectBy:'index'" class="col-md-4 madlibsWrapper">
 					
 					<input type="{{ madlib.type }}" name="{{ name }}" placeholder="{{ madlib.placeholder }}" ng-model="madlib.word" class="madlibsInput" ng-required="true">
 

@@ -93,7 +93,11 @@ angular.module('madlibs', ['ngAnimate'])
 
 		};
 
-		init();
+		$scope.madlibs = {};
+
+		$rootScope.mlTab = "input";
+
+		$timeout(init,10);
 
 		$scope.$on('mlReset',function(event){
 
