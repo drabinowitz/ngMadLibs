@@ -34,14 +34,20 @@
 	margin: -5px;
 }
 
-.madLibsInputs h2 {
+.madlibsInputs{
+	position: relative;
+}
+
+.madlibsInputs h2 {
 	margin-top: 50px;
 	margin-left: 50px;
+	position: relative;
 }
 
 .madlibsInput {
 	display: block;
 	margin: 5px auto;
+	position: relative;
 }
 
 .genderLabel {
@@ -76,7 +82,55 @@
 }
 
 .madlibsOutput {
-	margin-top: 50px;
-	border-top: 1px solid black;
 	padding: 20px 60px;
+	position: relative;
 }
+
+.animateBody.ng-hide-remove,
+.animateBody.ng-hide-add{
+  display:block!important
+}
+
+.animateBody.ng-hide-remove {
+  -webkit-animation:0.5s show;
+  animation:0.5s show;
+}
+
+.animateBody.ng-hide-add {
+  -webkit-animation:0.5s show reverse;
+  animation:0.5s show reverse;
+}
+
+@keyframes show {
+  from { opacity:0;left:30px; }
+  to { opacity:1;left:0; }
+}
+
+@-webkit-keyframes show {
+  from { opacity:0;left:30px; }
+  to { opacity:1;left:0; }
+}
+
+.madlibsWrapper.ng-enter-stagger{
+	-webkit-animation-delay:0.1s;
+	animation-delay:0.1s;
+	-webkit-animation-duration:0;
+	-animation-duration:0;
+}
+
+.madlibsWrapper.ng-enter{
+	opacity: 0;
+	left:10px;
+	-webkit-animation:0.5s enterRight;
+	animation:0.5s enterRight;
+}
+
+@keyframes enterRight {
+  from { opacity:0;left:10px; }
+  to { opacity:1;left:0; }
+}
+
+@-webkit-keyframes enterRight {
+  from { opacity:0;left:10px; }
+  to { opacity:1;left:0; }
+ }
