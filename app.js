@@ -81,7 +81,7 @@ angular.module('madlibs', ['ngAnimate'])
 
 					$rootScope.$broadcast('mlSubmit',$scope.madlibs,$scope.settings);
 
-				},1000);
+				},500);
 
 				$rootScope.mlTab = undefined;
 
@@ -119,7 +119,7 @@ angular.module('madlibs', ['ngAnimate'])
 
 	})
 
-	.controller('mlOutputCtrl', function($rootScope,$scope){
+	.controller('mlOutputCtrl', function($rootScope,$scope,$timeout){
 
 		$scope.$on('mlSubmit',function(event,madlibs,settings){
 
@@ -133,7 +133,13 @@ angular.module('madlibs', ['ngAnimate'])
 
 		$scope.reset = function(){
 
-			$rootScope.$broadcast('mlReset');
+			$timeout(function(){
+
+				$rootScope.$broadcast('mlReset');
+
+			},500);
+
+			$rootScope.mlTab = undefined;
 
 		};
 

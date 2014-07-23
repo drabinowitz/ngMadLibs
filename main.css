@@ -96,8 +96,8 @@
 }
 
 .animateBody.ng-hide-remove {
-  -webkit-animation:1.0s show;
-  animation:1.0s show;
+  -webkit-animation:0.5s show;
+  animation:0.5s show;
 }
 
 .animateBody.ng-hide-add {
